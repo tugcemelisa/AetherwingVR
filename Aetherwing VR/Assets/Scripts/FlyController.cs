@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,24 +13,25 @@ public class FlyController : MonoBehaviour
     public Rigidbody rb;
     public Animator animator;
     public Volume flyingVolume;
+    public Transform[] spawnPoints;
 
     [Header("Flight Settings")]
     public float flySpeed = 4f;
     public float handAngleThreshold = 80f;
     public float handDistanceThreshold = 0.4f;
-    public float flySmoothness = 2f;
+    public float flySmoothness = 3f;
+    public float liftForce = 2.5f;
 
     [Header("Walk Settings")]
     public float walkThreshold = 0.1f;
-    public float groundCheckDistance = 0.2f;
-    public float stopSmoothing = 2f;
+    public float groundCheckDistance = 0.3f;
+    public float stopSmoothing = 3f;
 
     private bool isFlying = false;
     private bool isWalking = false;
 
     void Start()
     {
-        // Rigidbody ayarları (düşmeyi önlemek için)
         rb.useGravity = false;
     }
 
@@ -42,10 +44,10 @@ public class FlyController : MonoBehaviour
 
         if (isFlying)
         {
-            Vector3 flyDirection = headTransform.forward;
-            Vector3 targetVelocity = flyDirection * flySpeed;
+            Vector3 flyDir = headTransform.forward;
+            flyDir.y += liftForce;
+            Vector3 targetVelocity = flyDir.normalized * flySpeed;
 
-            // Hemen aşağı düşmesin diye sadece yavaşça yön değiştir
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, targetVelocity, Time.deltaTime * flySmoothness);
 
             animator.SetBool("isFlying", true);
@@ -53,13 +55,12 @@ public class FlyController : MonoBehaviour
         }
         else
         {
-            // Uçmuyorsan hızla düşme, sadece yumuşakça yere in
-            Vector3 currentVel = rb.linearVelocity;
-            Vector3 slowedVel = new Vector3(0, Mathf.Lerp(currentVel.y, 0, Time.deltaTime * stopSmoothing), 0);
-            rb.linearVelocity = slowedVel;
-
-            Vector3 horizontalVelocity = new Vector3(currentVel.x, 0, currentVel.z);
+            Vector3 currentVelocity = rb.linearVelocity;
+            Vector3 horizontalVelocity = new Vector3(currentVelocity.x, 0, currentVelocity.z);
             isWalking = horizontalVelocity.magnitude > walkThreshold && IsGrounded();
+
+            Vector3 slowedVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, Time.deltaTime * stopSmoothing);
+            rb.linearVelocity = slowedVelocity;
 
             animator.SetBool("isFlying", false);
             animator.SetBool("isWalking", isWalking);
@@ -72,16 +73,25 @@ public class FlyController : MonoBehaviour
         }
 
         if (flyingVolume != null)
-        {
             flyingVolume.weight = isFlying ? 1f : 0f;
-        }
     }
 
     private bool IsGrounded()
     {
-        if (groundCheckPoint == null)
-            return false;
-
+        if (groundCheckPoint == null) return false;
         return Physics.Raycast(groundCheckPoint.position, Vector3.down, groundCheckDistance);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ocean") && spawnPoints.Length > 0)
+        {
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Transform randomSpawn = spawnPoints[randomIndex];
+            transform.position = randomSpawn.position;
+            rb.linearVelocity = Vector3.zero;
+            animator.SetBool("isFlying", false);
+            animator.SetBool("isWalking", false);
+        }
     }
 }
