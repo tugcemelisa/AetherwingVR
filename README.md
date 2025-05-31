@@ -48,9 +48,11 @@ Aetherwing VR is a serene, anime-style VR experience where players embody a myth
 
 ## Notion Page
 https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
+<img width="1161" alt="Screenshot 2025-05-31 231353" src="https://github.com/user-attachments/assets/53d94fdb-6bf1-4f50-8c5b-6d835b29e8c9" />
 
 ## Kanban Board
 https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
+<img width="1119" alt="Screenshot 2025-05-31 231322" src="https://github.com/user-attachments/assets/08b8e7fa-6dc4-4951-99bb-a2a63c66512d" />
 
 ## ArtStation
 
@@ -59,4 +61,3 @@ https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
 - I fixed falling and floating issues by syncing XR rig and character position.
 - My prototype confirmed the idea is fun and technically feasible, but needed more testing for precise spawn handling and hand detection.
 - If I had more time, I’d polish flight transitions, create more diffrent floating island, iand add AI companions[Dragon idea] to fly with the player.
-
