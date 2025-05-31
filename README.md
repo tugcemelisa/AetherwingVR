@@ -37,5 +37,26 @@ Aetherwing VR is a serene, anime-style VR experience where players embody a myth
 - [Rush - Meta Store](https://www.meta.com/en-gb/experiences/rush/1810693125705825)
 - [Zenith MMO](https://zenithmmo.com/)
 - [Genshin Impact's](https://www.youtube.com/watch?v=ybVC2UnlU9M): Environmental style
-- [*Split Fiction - Kitten Side Story](https://www.youtube.com/watch?v=unATxBJzexg) :*  for flight flow
+- [*Split Fiction - Kitten Side Story](https://www.youtube.com/watch?v=unATxBJzexg): for flight flow
 - [Population: One:](https://www.meta.com/en-gb/experiences/population-one/2564158073609422/?srsltid=AfmBOorz7FYRi3cBzJXvCCZpF0Hlst8xHQyAynlCKz280z8t3Ho11bzo) flying mechanic reference
+
+## Pitch Presentation 
+![Screenshot 2025-05-31 223643](https://github.com/user-attachments/assets/e04678a2-cf75-4f3c-81af-c7082575cfb9)
+
+## Video
+> Click the image to watch the **DanceCraze VR** gameplay demo on YouTube.
+
+## Notion Page
+https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
+
+## Kanban Board
+https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
+
+## ArtStation
+
+## Key Learning Points
+- I learned to blend animation states with physics and camera perspective smoothly.
+- I fixed falling and floating issues by syncing XR rig and character position.
+- My prototype confirmed the idea is fun and technically feasible, but needed more testing for precise spawn handling and hand detection.
+- If I had more time, I’d polish flight transitions, create more diffrent floating island, iand add AI companions[Dragon idea] to fly with the player.
+
