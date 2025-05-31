@@ -60,4 +60,4 @@ https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
 - I learned to blend animation states with physics and camera perspective smoothly.
 - I fixed falling and floating issues by syncing XR rig and character position.
 - My prototype confirmed the idea is fun and technically feasible, but needed more testing for precise spawn handling and hand detection.
-- If I had more time, I’d polish flight transitions, create more diffrent floating island, iand add AI companions[Dragon idea] to fly with the player.
+- If I had more time, I’d polish flight transitions, create more different floating islands, and add AI companions[Dragon idea] to fly with the player. But I'll ladd a flying dragon companion that follows the player in the sky as a surprise touch.
