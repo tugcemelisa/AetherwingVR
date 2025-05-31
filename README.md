@@ -44,7 +44,7 @@ Aetherwing VR is a serene, anime-style VR experience where players embody a myth
 ![Screenshot 2025-05-31 223643](https://github.com/user-attachments/assets/e04678a2-cf75-4f3c-81af-c7082575cfb9)
 
 ## Video
-> Click the image to watch the **DanceCraze VR** gameplay demo on YouTube.
+> Click the image to watch the ** Aetherwing VR ** gameplay demo on YouTube.
 
 ## Notion Page
 https://www.notion.so/204cce1ac2ed81a5b87efecdf8387973
